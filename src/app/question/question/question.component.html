@@ -1,0 +1,9 @@
+<div class="ui segment" id='question-component'>
+  <h3 class="ui header">{{question?.name}}</h3>
+<ul class='ui list'>
+  <li *ngFor="let com of question?.comments">
+    <app-comment [comment]='com'></app-comment>
+  </li>
+</ul>
+<button class="ui icon button" (click)="removeQuestion()"><i  class="trash outline icon"></i></button>
+</div>

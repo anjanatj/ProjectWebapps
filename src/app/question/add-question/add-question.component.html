@@ -1,0 +1,19 @@
+<form  [formGroup]='question' (ngSubmit)='onSubmit()' class="ui large form segment error">
+  <h3 class="ui header">Add Question</h3>
+  <div class="field">
+    <label for="name_id">name:</label>
+    <input type="text" id="name_id" formControlName="name">
+  </div>
+  <div class="field" formArrayName='comments'
+    *ngFor='let item of comments.controls; let i = index'>
+    <div [formGroupName] = 'i'>
+      <label for="comment_name">comment: </label>
+      <div class="three fields" >
+          <input type="text" id="comment_name" formControlName='commentname'>
+          <input type="text" id="comment_description" formControlName='description'>  
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="ui positive right floated button">add</button>
+</form>
+REMOVE LATER:  {{ question.value | json}}

@@ -1,0 +1,8 @@
+<div class="ui segment">
+  <h3 class="ui header">{{question?.name}} details</h3>
+  <ul class="ui list">
+    <li *ngFor="let com of question?.comments">
+      <app-comment [comment]='com'></app-comment>
+    </li>
+  </ul>
+</div>

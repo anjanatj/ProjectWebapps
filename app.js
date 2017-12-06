@@ -4,6 +4,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+let mongoose = require('mongoose');
+let passport = require('passport');
+
+require('./models/Question');
+require('./models/Comment');
+require('./models/User');
+
+require('./config/passport');
+
+mongoose.connect('mongodb://localhost:27017/jobabendeddb', { useMongoClient:true });
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -20,11 +30,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(passport.initialize());
 
-app.use('/', index);
-app.use('/users', users);
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use('/API', index);
+app.use('/API/users', users);
+console.log("routes loaded");
+app.use(express.static(__dirname + '/dist'));
 
 app.all("*", (req, res) =>{
   const indexFile = `${path.join(_dirname, 'dist')}/index.html`;
