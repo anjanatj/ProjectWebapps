@@ -7,7 +7,7 @@ let Question = mongoose.model('Question');
 let Comment = mongoose.model('Comment');
 
 let auth = jwt({
-    secret: 'DitIsHetProjectVanAnjana',
+    secret: progress.env.QUESTION_BACKEND_SECRET,
     userProperty: "payload"
   });
 
