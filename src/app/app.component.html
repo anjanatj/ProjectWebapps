@@ -2,44 +2,30 @@
 <html>
   <head>
       <!--<title>{{ title }}</title>-->
+      <script src="../assets/navbar.js"></script>
   </head>
   
   <body>
-    <!--<header>
+      
+    <header>
       <a class="logo" routerLink="/">
         <img src="../assets/Logo.png">
       </a>
       <nav>
-        <ul>
-
-            <li><a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/user">{{currentUser|async}}</a>
-              <ng-template #loginlink>
-              <a class="item" routerLinkActive='active' routerLink="/login">log in</a>
-              </ng-template>
-            </li>
-
-            <li *ngIf='(currentUser | async)'><a class="item" routerLinkActive="active" routerLink="/logout">Afmelden</a></li>
-
-        </ul>
+          <ul>
+              <li><a class='item' routerLinkActive='active' routerLink="question/list" >Questions</a></li>
+              <li><a class='item' routerLinkActive='active' routerLink="question/add" >Add Questions</a></li>
+              <li><a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/logout">Logout</a>
+                <ng-template #loginlink>
+                  <a class="item" routerLinkActive='active' routerLink="/login">Login</a>
+                </ng-template>
+              </li>
+            </ul>
       </nav>
-    </header>-->
-
-    
-    <div class="ui container" id='topid'>
-      <div class="ui three item menu">
-        <a class='item' routerLinkActive='active' routerLink="question/list" >Questions</a>
-        <a class='item' routerLinkActive='active' routerLink="question/add" >Add Questions</a>
-
-        <a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/logout">{{currentUser|async}}</a>
-        <ng-template #loginlink>
-          <a class="item" routerLinkActive='active' routerLink="/login">log in</a>
-        </ng-template>
-
-      </div>
-      <router-outlet></router-outlet>
+    </header>
+    <div class="ui container wrapper" id='topid'>
+        <router-outlet></router-outlet>
     </div>
-
-
     <footer>@JobAbended - Anjana T'Jampens - 2017</footer>
   </body>
 </html>

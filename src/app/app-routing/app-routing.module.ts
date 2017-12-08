@@ -10,7 +10,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService],
     loadChildren: '../question/question.module#QuestionModule'
   },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'question/list', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 

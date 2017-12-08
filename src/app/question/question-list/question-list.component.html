@@ -1,5 +1,5 @@
-<div class="ui grid" id='question-list'>
-  <div *ngFor="let ques of questions">
+<div class="ui segment" id='question-list'>
+  <div  *ngFor="let ques of questions">
     <app-question  [question]="ques" (deleteQuestion)='removeQuestion($event)' routerLink="{{ ques.id }}">
     </app-question>
   </div>

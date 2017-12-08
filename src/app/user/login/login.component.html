@@ -1,14 +1,14 @@
 <form [formGroup]='user' (ngSubmit)='onSubmit()' class="ui large form segment">
-  <h3 class="ui header">login</h3>
+  <h3 class="ui header">Login</h3>
   <div class="field">
-    <label for="username">username:</label>
+    <label for="username">Username:</label>
     <input type="text" id="username" formControlName='username'>
   </div>
   <div class="field">
-    <label for="password">password:</label>
+    <label for="password">Password:</label>
     <input type="password" id="password" formControlName='password'>
   </div>
-  <button type='submit' [disabled]='!user.valid' class="ui positive right floated button" id='loginbtn'>log in</button>
+  <button type='submit' [disabled]='!user.valid' class="ui positive right floated button" id='loginbtn'>Log in</button>
   <div *ngIf='errorMsg' class='ui red label'>{{errorMsg}}</div>
 </form>
-<a class='item' routerLink="/register" >register</a>
+<a class='item' routerLink="/register" >Register</a>

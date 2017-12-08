@@ -1,0 +1,7 @@
+.ui.positive.button, .ui.positive.buttons.button {
+    background-color: #000099 !important;
+}
+
+.ui.positive.button:hover, .ui.positive.buttons .button:hover {
+    background-color: #00004e !important;
+}

@@ -1,0 +1,20 @@
+.ui.positive.button, .ui.positive.buttons.button {
+    background-color: #000099 !important;
+}
+
+.ui.positive.button:hover, .ui.positive.buttons .button:hover {
+    background-color: #00004e !important;
+}
+
+ul li {
+    margin-right: 2em;
+    padding: 1em;
+    flex-grow: 1;
+}
+
+ul li .app {
+    text-decoration: none;
+    font-family: "Arial", "Helvetica", sans-serif;
+    height: 100%;
+    width: 100%;
+}

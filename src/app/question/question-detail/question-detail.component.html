@@ -1,10 +1,10 @@
 <div class="ui segment" *ngIf='question'>
-  <h3 class="ui header">{{question?.name}} details</h3>
+  <h3 class="ui header">{{question?.name}}</h3>
   <div>
-    description: {{question?.description}}
+    The description: {{question?.description}}
     <ul class="ui list">
       <li *ngFor="let com of question?.comments">
-        <app-comment [comment]='com'></app-comment>
+        <app-comment class="app" [comment]='com'></app-comment>
       </li>
     </ul>
   </div>
@@ -15,5 +15,5 @@
     <label for="desc_id">Comment:</label>
     <input type="text" id="desc_id" formControlName='description'>
   </div>
-  <button type='submit' class="ui positive right floated button">add</button>
+  <button type='submit' class="ui positive right floated button">Add comment</button>
 </form>
