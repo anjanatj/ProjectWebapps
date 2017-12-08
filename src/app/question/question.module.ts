@@ -1,4 +1,5 @@
-import { RouterModule } from '@angular/router';
+import { AuthGuardService } from '../user/auth-guard.service';
+import { CanActivate, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
@@ -15,7 +16,7 @@ import { QuestionResolver } from './question-resolver.service';
 const routes = [
   { path: 'list', component: QuestionListComponent },
   { path: 'add', component: AddQuestionComponent },
-  { path: ':id', component: QuestionDetailComponent,
+  { path: 'list/:id', component: QuestionDetailComponent,
     resolve: { question: QuestionResolver} }
 ];
 
@@ -25,7 +26,7 @@ const routes = [
     CommentComponent,
     AddQuestionComponent,
     QuestionListComponent,
-    QuestionDetailComponent
+    QuestionDetailComponent,
   ],
   imports: [
     HttpModule,
@@ -36,7 +37,7 @@ const routes = [
   providers: [
     QuestionDataService,
     QuestionResolver
-  ]
+  ],
 })
 
 export class QuestionModule { }

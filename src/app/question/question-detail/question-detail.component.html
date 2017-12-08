@@ -1,8 +1,19 @@
-<div class="ui segment">
+<div class="ui segment" *ngIf='question'>
   <h3 class="ui header">{{question?.name}} details</h3>
-  <ul class="ui list">
-    <li *ngFor="let com of question?.comments">
-      <app-comment [comment]='com'></app-comment>
-    </li>
-  </ul>
+  <div>
+    description: {{question?.description}}
+    <ul class="ui list">
+      <li *ngFor="let com of question?.comments">
+        <app-comment [comment]='com'></app-comment>
+      </li>
+    </ul>
+  </div>
 </div>
+
+<form [formGroup]='questionGroup' (ngSubmit)='onSubmit()' class="ui large form segment error">
+  <div class="field">
+    <label for="desc_id">Comment:</label>
+    <input type="text" id="desc_id" formControlName='description'>
+  </div>
+  <button type='submit' class="ui positive right floated button">add</button>
+</form>

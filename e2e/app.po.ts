@@ -6,7 +6,6 @@ export class AppPage {
   }
 
   getParagraphText() {
-    // console.log(element(by.css('app-root h1')).getText());
     return element(by.id('question-list'));
   }
 

@@ -9,7 +9,7 @@ import { Question } from '../models/question.model';
 export class QuestionResolver implements Resolve< Question > {
   constructor(private questionService: QuestionDataService) { }
 
-    public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Question> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Question> {
       return this.questionService.getQuestion(route.params['id']);
     }
 }

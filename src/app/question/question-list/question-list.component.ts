@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Comment } from '../../models/comment.model';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../../models/question.model';
 import { QuestionDataService } from '../../services/question-data.service';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-question-list',
@@ -9,6 +11,8 @@ import { QuestionDataService } from '../../services/question-data.service';
   providers: [QuestionDataService]
 })
 export class QuestionListComponent implements OnInit {
+  @Output() public newComment = new EventEmitter<Comment>();
+  public comment: FormGroup;
   private _questions: Question[];
   constructor(private _questionDataService: QuestionDataService) { }
 
@@ -25,5 +29,8 @@ export class QuestionListComponent implements OnInit {
       this._questions = this._questions.filter(val => item.id !== val.id)
     );
   }
+
+  /*addComment(question: Question) {
+  }*/
 
 }

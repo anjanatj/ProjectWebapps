@@ -25,6 +25,7 @@ export class AddQuestionComponent implements OnInit {
   ngOnInit() {
      this.question = this.fb.group({
        name: ['', [Validators.required, Validators.minLength(2)]],
+       description: ['', [Validators.required, Validators.minLength(2)]],
        comments: this.fb.array([ this.createComments() ])
      });
 
@@ -36,18 +37,17 @@ export class AddQuestionComponent implements OnInit {
   }
   createComments(): FormGroup {
     return this.fb.group({
-      commentname: [''],
       description: ['']
     });
   }
   onSubmit() {
     const question = new Question(this.question.value.name, this.question.value.description);
-    for (const com of this.question.value.comments) {
+    /*for (const com of this.question.value.comments) {
       if (com.commentname.length > 2) {
         const comment = new Comment(com.commentname, com.description);
         question.addComment(comment);
       }
-    }
+    }*/
     this._questionDataService.addNewQuestion(question).subscribe(item => {
       const comt = question.comments.map(com =>
         this._questionDataService.addCommentToQuestion(com, item));

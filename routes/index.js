@@ -12,7 +12,7 @@ let auth = jwt({
   });
 
 /* GET home page. */
-router.get('/API/questions', function(req, res, next) {
+router.get('/API/questions/', function(req, res, next) {
     console.log("get /questions");
     let query = Question.find().populate("comments");
     query.exec(function(err, questions) {
@@ -22,7 +22,7 @@ router.get('/API/questions', function(req, res, next) {
     
 });
 
-router.post('/API/questions', auth, function(req, res, next) {
+router.post('/API/questions/', auth, function(req, res, next) {
     let question = new Question({
         name: req.body.name,
         description: req.body.description
@@ -95,7 +95,7 @@ router.param("question", function(req, res, next, id) {
     com.save(function(err, comment) {
       if (err) return next(err);
         
-      req.question.comments.push(comment)
+      req.question.comments.push(comment);
       req.question.save(function(err, rec) {
         if (err) return next(err);
         res.json(comment);

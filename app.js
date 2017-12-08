@@ -7,13 +7,13 @@ var bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 let passport = require('passport');
 
+require('./models/User');
 require('./models/Question');
 require('./models/Comment');
-require('./models/User');
 
 require('./config/passport');
 
-mongoose.connect('mongodb://localhost:27017/jobabendeddb', { useMongoClient:true });
+mongoose.connect('mongodb://anjanatj:jobabendeddb@ds129936.mlab.com:29936/jobabendeddb', { useMongoClient:true });
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
-app.use('/API', index);
+app.use('/', index);
 app.use('/API/users', users);
 console.log("routes loaded");
 app.use(express.static(__dirname + '/dist'));

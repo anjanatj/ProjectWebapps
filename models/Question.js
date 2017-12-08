@@ -6,4 +6,4 @@ var QuestionSchema = new mongoose.Schema({
     comments: [{type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}]
 });
 
-mongoose.model('Question', QuestionSchema)
+mongoose.model('Question', QuestionSchema);

@@ -23,14 +23,14 @@ export class QuestionDataService {
         .map(response => response.json().map(item => Question.fromJSON(item)));
     }
 
-    addNewQuestion(question): Observable<Question> {
-      return this.http.post(`${this._appUrl}/questions`, question)
-        .map(res => res.json()).map(item => Question.fromJSON(item));
-    }
-
     getQuestion(id): Observable<Question> {
       return this.http.get(`${this._appUrl}/question/${id}`)
         .map(response => response.json()).map(item => Question.fromJSON(item));
+    }
+
+    addNewQuestion(question): Observable<Question> {
+      return this.http.post(`${this._appUrl}/questions`, question, { headers: new Headers({Authorization: `Bearer ${this.auth.token}`}) })
+        .map(res => res.json()).map(item => Question.fromJSON(item));
     }
 
     addCommentToQuestion(com: Comment, ques: Question): Observable<Comment> {
@@ -41,4 +41,5 @@ export class QuestionDataService {
     removeQuestion(ques) {
       return this.http.delete(`${this._appUrl}/question/${ques.id}`).map(res => res.json()).map(item => Question.fromJSON(item));
     }
+
 }

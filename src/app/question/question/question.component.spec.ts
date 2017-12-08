@@ -41,8 +41,5 @@ describe('QuestionComponent', () => {
     fixture.detectChanges();
 
     expect(el.textContent).toBe('testQuestion');
-  });
-function AddComment() {
-  return new Comment('testCommentName', 'testCommentDescription');
-}*/
+  });*/
 });
