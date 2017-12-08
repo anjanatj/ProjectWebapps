@@ -13,7 +13,7 @@ require('./models/Comment');
 
 require('./config/passport');
 
-mongoose.connect(process.env.DATABASE-LINK, { useMongoClient:true });
+mongoose.connect('mongodb://anjanatj:jobabendeddb@ds129936.mlab.com:29936/jobabendeddb', { useMongoClient:true });
 
 var index = require('./routes/index');
 var users = require('./routes/users');

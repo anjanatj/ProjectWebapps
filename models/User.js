@@ -26,7 +26,7 @@ UserSchema.methods.generateJWT = function () {
         _id: this._id,
         username: this.username,
         exp: parseInt(exp.getTime() / 1000),
-    }, process.env.QUESTION_BACKEND_SECRET);
+    }, 'DitIsHetProjectVanAnjana');
 };
 
 mongoose.model('User', UserSchema);
