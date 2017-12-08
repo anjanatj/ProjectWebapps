@@ -13,7 +13,7 @@ require('./models/Comment');
 
 require('./config/passport');
 
-mongoose.connect(progress.env.DATABASE-LINK, { useMongoClient:true });
+mongoose.connect(process.env.DATABASE-LINK, { useMongoClient:true });
 
 var index = require('./routes/index');
 var users = require('./routes/users');
